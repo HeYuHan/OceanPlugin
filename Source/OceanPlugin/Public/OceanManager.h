@@ -51,22 +51,22 @@ struct OCEANPLUGIN_API FWaveParameter
 {
 	GENERATED_USTRUCT_BODY();
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FName WaveName;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float Rotation;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float Length;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float Amplitude;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float Steepness;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float TimeScale;
 
 	FORCEINLINE FWaveParameter(FName InWaveName, float InRotation, float InLength, float InAmplitude, float InSteepness, float InTimeScale);
@@ -95,28 +95,28 @@ struct OCEANPLUGIN_API FWaveSetParameters
 {
 	GENERATED_USTRUCT_BODY();
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave01;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave02;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave03;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave04;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave05;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave06;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave07;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FWaveParameter Wave08;
 
 	// Default struct values
@@ -166,17 +166,17 @@ public:
 	 * Two invisible depth meshes: OceanMeshUnderComp, OceanMeshTopComp.
 	 */
 
-	UPROPERTY(Category = "Ocean", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite)
 		UBillboardComponent* IconComp;
-	UPROPERTY(Category = "Ocean", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite)
 		UStaticMeshComponent* OceanMeshComp;
-	UPROPERTY(Category = "Ocean", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite)
 		UStaticMeshComponent* OceanMeshUnderComp;
-	UPROPERTY(Category = "Ocean", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite)
 		UStaticMeshComponent* OceanMeshTopComp;
-	UPROPERTY(Category = "Ocean", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UInfiniteSystemComponent* InfiniteSystemComp;
-	UPROPERTY(Category = "Ocean", EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UPlanarReflectionComponent* PlanarReflectionComp;
 
 
@@ -535,59 +535,59 @@ public:
 	  * Actors not visible for planar reflections.
 	  * This actor is added by default.
 	  */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Parameters|Settings")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<AActor*> HiddenActors;
 
 	// Default ocean shader.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Parameters|Settings")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		EOceanMaterialType OceanShader = EOceanMaterialType::OceanUltra;
 
 	// The ocean dynamic material instance
-	UPROPERTY(Category = "Parameters|Settings", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UMaterialInstanceDynamic* MID_Ocean;
 
 	// The depth plane dynamic material instance
-	UPROPERTY(Category = "Parameters|Settings", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UMaterialInstanceDynamic* MID_Ocean_Depth;
 
 
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool EnableGerstnerWaves = true;
 
 	// The global direction the waves travel.
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FVector2D GlobalWaveDirection = FVector2D(0, 1);;
 
 	// The global speed multiplier of the waves.
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float GlobalWaveSpeed = 2.0f;
 
 	// The global amplitude multiplier of the waves.
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float GlobalWaveAmplitude = 1.0f;
 
 	/* Optimization:
 	 * If the distance of a buoyant point to base sea level exceeds DistanceCheck,
 	 * skip the Gerstner calculations and return base sea level.
 	 */
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float DistanceCheck = 10000.0f;
 
 	/* Median Gerstner wave settings
 	 * (only 1 cluster is used in the material by default).*/
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<FWaveParameter> WaveClusters;
 
 	/* Individual Gerstner wave settings.
 	 * (leave blank to use the default offsets).*/
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<FWaveSetParameters> WaveSetOffsetsOverride;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly)
 		float NetworkTimeOffset;
 
-	UFUNCTION(BlueprintCallable, Category = "Ocean Manager", meta = (HidePin = "World"))
+	UFUNCTION(BlueprintCallable, meta = (HidePin = "World"))
 		FVector GetWaveHeightValue(const FVector& location, const UWorld* World = nullptr, bool HeightOnly = true, bool TwoIterations = false);
 
 	// Returns the wave height at a determined location.
@@ -595,28 +595,28 @@ public:
 	float GetWaveHeight(const FVector& location, const UWorld* World = nullptr) const;
 
 	// Landscape height modulation vars.
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool bEnableLandscapeModulation;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float ModulationStartHeight = -1000.0f;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float ModulationMaxHeight = 3200.0f;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float ModulationPower = 4.0f;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		ALandscape* Landscape;
 
-	UPROPERTY(Category = "Ocean", BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		UTexture2D* HeightmapTexture;
 
-	UFUNCTION(BlueprintCallable, Category = "Ocean Manager")
+	UFUNCTION(BlueprintCallable)
 		void LoadLandscapeHeightmap(UTexture2D* Tex2D);
 
-	UFUNCTION(BlueprintCallable, Category = "Ocean Manager")
+	UFUNCTION(BlueprintCallable)
 		FLinearColor GetHeightmapPixel(float U, float V) const;
 
 
